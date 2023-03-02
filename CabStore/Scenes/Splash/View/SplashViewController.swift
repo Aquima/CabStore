@@ -6,16 +6,26 @@
 //
 
 import UIKit
+import SnapKit
 
+protocol SplashViewDelegate: AnyObject {
+    func goToStore()
+}
 class SplashViewController: UIViewController {
-
+    weak var delegate: SplashViewDelegate?
+    static let identifier = "splashViewController"
+    private let splashView = SplashView()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        setupView()
     }
-    
-
+    func setupView(){
+        self.view = splashView
+        splashView.setupUI()
+    }
+   
     /*
     // MARK: - Navigation
 

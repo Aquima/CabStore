@@ -9,12 +9,35 @@ import UIKit
 
 class SplashView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    func setupUI(){
+        self.backgroundColor = .white
+        createImageBanner()
+        createImageShoppingBag()
     }
-    */
+    func createImageBanner() {
+        let imageBanner = UIImageView()
+        let image = UIImage.init(named: "cabifyLogo")
+        imageBanner.image = image
+        self.addSubview(imageBanner)
+        imageBanner.snp.makeConstraints { make in
+            make.top.equalTo(200)
+            make.height.equalTo(50)
+            make.width.equalTo(140)
+            make.centerX.equalToSuperview()
+        }
+        imageBanner.contentMode = .scaleAspectFit
+    }
+    func createImageShoppingBag() {
+        let imageBanner = UIImageView()
+        let image = UIImage.init(named: "shoppingBag")
+        imageBanner.image = image
+        self.addSubview(imageBanner)
+        imageBanner.snp.makeConstraints { make in
+            make.height.equalTo(200)
+            make.width.equalTo(200)
+            make.centerX.centerY.equalToSuperview()
+        }
+        imageBanner.contentMode = .scaleAspectFit
+    }
 
 }

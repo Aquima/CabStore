@@ -10,12 +10,12 @@ import UIKit
 class ApplicationCoordinator: Coordinator {
     let window: UIWindow?
     let rootViewController: UINavigationController
-    var homeCoordinator: HomeCoordinator
+    var homeCoordinator: SplashCoordinator
     init(window: UIWindow) {
         self.window = window
         rootViewController = UINavigationController()
         rootViewController.navigationBar.isHidden = true
-        homeCoordinator = HomeCoordinator(presenter: rootViewController)
+        homeCoordinator = SplashCoordinator(presenter: rootViewController)
     }
     func start() {
         window?.rootViewController = rootViewController
