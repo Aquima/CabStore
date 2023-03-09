@@ -8,22 +8,28 @@
 import UIKit
 import SnapKit
 
-protocol SplashViewDelegate: AnyObject {
+protocol ProductsListLogic: AnyObject {
     func goToStore()
 }
-class SplashViewController: UIViewController {
-    weak var delegate: SplashViewDelegate?
+class SplashViewController: UIViewController, ProductsListLogic {
+    func goToStore() {
+        
+    }
+    
+
     static let identifier = "splashViewController"
     private let splashView = SplashView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        var viewController = self
+        var viewModel = SplashViewModel()
+        viewModel.view
         setupView()
     }
     func setupView(){
         self.view = splashView
         splashView.setupUI()
+        splashView.startAnimating()
     }
    
     /*
