@@ -8,17 +8,18 @@
 import UIKit
 
 class ApplicationCoordinator: Coordinator {
+    var navigation: UINavigationController
     let window: UIWindow?
-    let rootViewController: UINavigationController
+
     var homeCoordinator: SplashCoordinator
     init(window: UIWindow) {
         self.window = window
-        rootViewController = UINavigationController()
-        rootViewController.navigationBar.isHidden = true
-        homeCoordinator = SplashCoordinator(presenter: rootViewController)
+        navigation = UINavigationController()
+        navigation.navigationBar.isHidden = true
+        homeCoordinator = SplashCoordinator(navigation)
     }
     func start() {
-        window?.rootViewController = rootViewController
+        window?.rootViewController = navigation
         homeCoordinator.start()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()

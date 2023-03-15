@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C421EBB629BE32B0007C9AD1 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C421EBB529BE32B0007C9AD1 /* StoreViewController.swift */; };
+		C421EBB829BE32C0007C9AD1 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C421EBB729BE32C0007C9AD1 /* StoreView.swift */; };
+		C421EBBA29BE32E0007C9AD1 /* StoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C421EBB929BE32E0007C9AD1 /* StoreInteractor.swift */; };
+		C421EBBC29BE32EC007C9AD1 /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C421EBBB29BE32EC007C9AD1 /* StorePresenter.swift */; };
+		C421EBBF29BE8162007C9AD1 /* StoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C421EBBE29BE8162007C9AD1 /* StoreCoordinator.swift */; };
+		C444A8FF29BD7A58008E8018 /* PunaUI in Frameworks */ = {isa = PBXBuildFile; productRef = C444A8FE29BD7A58008E8018 /* PunaUI */; };
+		C4DD51FD29BB912200463BBC /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD51FC29BB912200463BBC /* SplashPresenter.swift */; };
+		C4DD51FF29BB913100463BBC /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DD51FE29BB913100463BBC /* SplashInteractor.swift */; };
+		C4DDDA4229BD5C1A00BBB16E /* PureLayout in Frameworks */ = {isa = PBXBuildFile; productRef = C4DDDA4129BD5C1A00BBB16E /* PureLayout */; };
 		C4F96B4829AFF9C5008F1A57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B4729AFF9C5008F1A57 /* AppDelegate.swift */; };
 		C4F96B4A29AFF9C5008F1A57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B4929AFF9C5008F1A57 /* SceneDelegate.swift */; };
 		C4F96B4F29AFF9C5008F1A57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F96B4D29AFF9C5008F1A57 /* Main.storyboard */; };
@@ -23,7 +32,7 @@
 		C4F96B9229B02D58008F1A57 /* CabifyAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9129B02D58008F1A57 /* CabifyAssets.swift */; };
 		C4F96B9529B0301D008F1A57 /* CabifyAssetsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9429B0301D008F1A57 /* CabifyAssetsTest.swift */; };
 		C4F96B9729B04C0E008F1A57 /* LinearProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9629B04C0E008F1A57 /* LinearProgressBar.swift */; };
-		C4F96B9A29B05D4C008F1A57 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9929B05D4C008F1A57 /* SplashViewModel.swift */; };
+		C4F96B9A29B05D4C008F1A57 /* SplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9929B05D4C008F1A57 /* SplashModels.swift */; };
 		C4F96B9F29B0F463008F1A57 /* CabifyRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9C29B0F463008F1A57 /* CabifyRequestInterceptor.swift */; };
 		C4F96BA029B0F463008F1A57 /* CabifyNetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9D29B0F463008F1A57 /* CabifyNetworkLogger.swift */; };
 		C4F96BA129B0F463008F1A57 /* CabifyApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96B9E29B0F463008F1A57 /* CabifyApiManager.swift */; };
@@ -34,7 +43,7 @@
 		C4F96BB929B0F89A008F1A57 /* ConfigurationProductsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96BB229B0F89A008F1A57 /* ConfigurationProductsAPI.swift */; };
 		C4F96BBA29B0F89A008F1A57 /* CabifyStoreConfigurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4F96BB329B0F89A008F1A57 /* CabifyStoreConfigurations.plist */; };
 		C4F96BBB29B0F89A008F1A57 /* ProductsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96BB429B0F89A008F1A57 /* ProductsAPI.swift */; };
-		C4F96BBC29B0F89A008F1A57 /* GetProductListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96BB629B0F89A008F1A57 /* GetProductListWorker.swift */; };
+		C4F96BBC29B0F89A008F1A57 /* ListProductsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96BB629B0F89A008F1A57 /* ListProductsWorker.swift */; };
 		C4F96BBE29B0FF45008F1A57 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96BBD29B0FF45008F1A57 /* Product.swift */; };
 		C4F96BC029B10877008F1A57 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F96BBF29B10877008F1A57 /* ProductModel.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C421EBB529BE32B0007C9AD1 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		C421EBB729BE32C0007C9AD1 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		C421EBB929BE32E0007C9AD1 /* StoreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInteractor.swift; sourceTree = "<group>"; };
+		C421EBBB29BE32EC007C9AD1 /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
+		C421EBBE29BE8162007C9AD1 /* StoreCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCoordinator.swift; sourceTree = "<group>"; };
+		C4DD51FC29BB912200463BBC /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		C4DD51FE29BB913100463BBC /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		C4F96B4429AFF9C5008F1A57 /* CabStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F96B4729AFF9C5008F1A57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4F96B4929AFF9C5008F1A57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +85,7 @@
 		C4F96B9129B02D58008F1A57 /* CabifyAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabifyAssets.swift; sourceTree = "<group>"; };
 		C4F96B9429B0301D008F1A57 /* CabifyAssetsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabifyAssetsTest.swift; sourceTree = "<group>"; };
 		C4F96B9629B04C0E008F1A57 /* LinearProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressBar.swift; sourceTree = "<group>"; };
-		C4F96B9929B05D4C008F1A57 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		C4F96B9929B05D4C008F1A57 /* SplashModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModels.swift; sourceTree = "<group>"; };
 		C4F96B9C29B0F463008F1A57 /* CabifyRequestInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabifyRequestInterceptor.swift; sourceTree = "<group>"; };
 		C4F96B9D29B0F463008F1A57 /* CabifyNetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabifyNetworkLogger.swift; sourceTree = "<group>"; };
 		C4F96B9E29B0F463008F1A57 /* CabifyApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabifyApiManager.swift; sourceTree = "<group>"; };
@@ -80,7 +96,7 @@
 		C4F96BB229B0F89A008F1A57 /* ConfigurationProductsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProductsAPI.swift; sourceTree = "<group>"; };
 		C4F96BB329B0F89A008F1A57 /* CabifyStoreConfigurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CabifyStoreConfigurations.plist; sourceTree = "<group>"; };
 		C4F96BB429B0F89A008F1A57 /* ProductsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsAPI.swift; sourceTree = "<group>"; };
-		C4F96BB629B0F89A008F1A57 /* GetProductListWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProductListWorker.swift; sourceTree = "<group>"; };
+		C4F96BB629B0F89A008F1A57 /* ListProductsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProductsWorker.swift; sourceTree = "<group>"; };
 		C4F96BBD29B0FF45008F1A57 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C4F96BBF29B10877008F1A57 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C444A8FF29BD7A58008E8018 /* PunaUI in Frameworks */,
+				C4DDDA4229BD5C1A00BBB16E /* PureLayout in Frameworks */,
 				C4F96B7929B00B97008F1A57 /* Alamofire in Frameworks */,
 				C4F96B7C29B00C0A008F1A57 /* SnapKit in Frameworks */,
 			);
@@ -105,6 +123,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C421EBBD29BE814C007C9AD1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C421EBBE29BE8162007C9AD1 /* StoreCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C4DD51F729BB8B6F00463BBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C4DD51FC29BB912200463BBC /* SplashPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C4DD51F829BB8B9000463BBC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C4DD51FE29BB913100463BBC /* SplashInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C4DD51F929BB8BBA00463BBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4DD51FA29BB8BBF00463BBC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C4DD51FB29BB8BC700463BBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C4DD520029BC2F7500463BBC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C421EBB529BE32B0007C9AD1 /* StoreViewController.swift */,
+				C421EBB729BE32C0007C9AD1 /* StoreView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4DD520129BC2F7A00463BBC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C421EBB929BE32E0007C9AD1 /* StoreInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		C4DD520229BC2F8400463BBC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C421EBBB29BE32EC007C9AD1 /* StorePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		C4F96B3B29AFF9C5008F1A57 = {
 			isa = PBXGroup;
 			children = (
@@ -162,9 +250,9 @@
 		C4F96B7D29B00FA0008F1A57 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C4F96B8029B00FC2008F1A57 /* Cart */,
-				C4F96B7F29B00FB0008F1A57 /* Store */,
 				C4F96B7E29B00FA7008F1A57 /* Splash */,
+				C4F96B7F29B00FB0008F1A57 /* Store */,
+				C4F96B8029B00FC2008F1A57 /* Cart */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -172,10 +260,12 @@
 		C4F96B7E29B00FA7008F1A57 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				C4F96BAD29B0F89A008F1A57 /* Model */,
-				C4F96B9829B058A8008F1A57 /* ViewModel */,
-				C4F96B8B29B01153008F1A57 /* Coordinator */,
 				C4F96B8129B00FCE008F1A57 /* View */,
+				C4DD51F829BB8B9000463BBC /* Interactor */,
+				C4DD51F729BB8B6F00463BBC /* Presenter */,
+				C4F96BB529B0F89A008F1A57 /* Worker */,
+				C4F96BAD29B0F89A008F1A57 /* Model */,
+				C4F96B8B29B01153008F1A57 /* Coordinator */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -183,6 +273,10 @@
 		C4F96B7F29B00FB0008F1A57 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				C421EBBD29BE814C007C9AD1 /* Coordinator */,
+				C4DD520029BC2F7500463BBC /* View */,
+				C4DD520129BC2F7A00463BBC /* Interactor */,
+				C4DD520229BC2F8400463BBC /* Presenter */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -190,6 +284,9 @@
 		C4F96B8029B00FC2008F1A57 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				C4DD51F929BB8BBA00463BBC /* View */,
+				C4DD51FA29BB8BBF00463BBC /* Interactor */,
+				C4DD51FB29BB8BC700463BBC /* Presenter */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -259,7 +356,7 @@
 		C4F96B9829B058A8008F1A57 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C4F96B9929B05D4C008F1A57 /* SplashViewModel.swift */,
+				C4F96B9929B05D4C008F1A57 /* SplashModels.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -302,8 +399,8 @@
 		C4F96BAD29B0F89A008F1A57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C4F96B9829B058A8008F1A57 /* ViewModel */,
 				C4F96BB029B0F89A008F1A57 /* API */,
-				C4F96BB529B0F89A008F1A57 /* Worker */,
 				C4F96BBF29B10877008F1A57 /* ProductModel.swift */,
 			);
 			path = Model;
@@ -331,7 +428,7 @@
 		C4F96BB529B0F89A008F1A57 /* Worker */ = {
 			isa = PBXGroup;
 			children = (
-				C4F96BB629B0F89A008F1A57 /* GetProductListWorker.swift */,
+				C4F96BB629B0F89A008F1A57 /* ListProductsWorker.swift */,
 			);
 			path = Worker;
 			sourceTree = "<group>";
@@ -346,6 +443,7 @@
 				C4F96B4029AFF9C5008F1A57 /* Sources */,
 				C4F96B4129AFF9C5008F1A57 /* Frameworks */,
 				C4F96B4229AFF9C5008F1A57 /* Resources */,
+				C426EDCB29BC490400431680 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -355,6 +453,8 @@
 			packageProductDependencies = (
 				C4F96B7829B00B97008F1A57 /* Alamofire */,
 				C4F96B7B29B00C0A008F1A57 /* SnapKit */,
+				C4DDDA4129BD5C1A00BBB16E /* PureLayout */,
+				C444A8FE29BD7A58008E8018 /* PunaUI */,
 			);
 			productName = CabStore;
 			productReference = C4F96B4429AFF9C5008F1A57 /* CabStore.app */;
@@ -409,6 +509,8 @@
 			packageReferences = (
 				C4F96B7729B00B97008F1A57 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C4F96B7A29B00C0A008F1A57 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C4DDDA4029BD5C1A00BBB16E /* XCRemoteSwiftPackageReference "PureLayout" */,
+				C444A8FD29BD7A58008E8018 /* XCRemoteSwiftPackageReference "PunaUI" */,
 			);
 			productRefGroup = C4F96B4529AFF9C5008F1A57 /* Products */;
 			projectDirPath = "";
@@ -441,6 +543,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C426EDCB29BC490400431680 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.swiftlint.yml",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C4F96B4029AFF9C5008F1A57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -450,17 +574,24 @@
 				C4F96B9F29B0F463008F1A57 /* CabifyRequestInterceptor.swift in Sources */,
 				C4F96BAC29B0F52B008F1A57 /* MessageError.swift in Sources */,
 				C4F96B8A29B01139008F1A57 /* AplicationCoordinator.swift in Sources */,
+				C421EBBC29BE32EC007C9AD1 /* StorePresenter.swift in Sources */,
 				C4F96B8F29B02461008F1A57 /* SplashView.swift in Sources */,
 				C4F96BA129B0F463008F1A57 /* CabifyApiManager.swift in Sources */,
 				C4F96B4829AFF9C5008F1A57 /* AppDelegate.swift in Sources */,
+				C4DD51FF29BB913100463BBC /* SplashInteractor.swift in Sources */,
 				C4F96BC029B10877008F1A57 /* ProductModel.swift in Sources */,
 				C4F96BA629B0F4EE008F1A57 /* Configuration.swift in Sources */,
+				C421EBB629BE32B0007C9AD1 /* StoreViewController.swift in Sources */,
+				C4DD51FD29BB912200463BBC /* SplashPresenter.swift in Sources */,
 				C4F96B8729B010C6008F1A57 /* Coordinator.swift in Sources */,
 				C4F96B8D29B01160008F1A57 /* SplashCoordinator.swift in Sources */,
-				C4F96BBC29B0F89A008F1A57 /* GetProductListWorker.swift in Sources */,
-				C4F96B9A29B05D4C008F1A57 /* SplashViewModel.swift in Sources */,
+				C4F96BBC29B0F89A008F1A57 /* ListProductsWorker.swift in Sources */,
+				C421EBBF29BE8162007C9AD1 /* StoreCoordinator.swift in Sources */,
+				C4F96B9A29B05D4C008F1A57 /* SplashModels.swift in Sources */,
 				C4F96BB929B0F89A008F1A57 /* ConfigurationProductsAPI.swift in Sources */,
+				C421EBBA29BE32E0007C9AD1 /* StoreInteractor.swift in Sources */,
 				C4F96BA529B0F4EE008F1A57 /* BuildConfiguration.swift in Sources */,
+				C421EBB829BE32C0007C9AD1 /* StoreView.swift in Sources */,
 				C4F96B9729B04C0E008F1A57 /* LinearProgressBar.swift in Sources */,
 				C4F96BA929B0F500008F1A57 /* Rechability.swift in Sources */,
 				C4F96B4A29AFF9C5008F1A57 /* SceneDelegate.swift in Sources */,
@@ -753,6 +884,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C444A8FD29BD7A58008E8018 /* XCRemoteSwiftPackageReference "PunaUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Aquima/PunaUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		C4DDDA4029BD5C1A00BBB16E /* XCRemoteSwiftPackageReference "PureLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PureLayout/PureLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		C4F96B7729B00B97008F1A57 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -772,6 +919,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C444A8FE29BD7A58008E8018 /* PunaUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C444A8FD29BD7A58008E8018 /* XCRemoteSwiftPackageReference "PunaUI" */;
+			productName = PunaUI;
+		};
+		C4DDDA4129BD5C1A00BBB16E /* PureLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4DDDA4029BD5C1A00BBB16E /* XCRemoteSwiftPackageReference "PureLayout" */;
+			productName = PureLayout;
+		};
 		C4F96B7829B00B97008F1A57 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C4F96B7729B00B97008F1A57 /* XCRemoteSwiftPackageReference "Alamofire" */;

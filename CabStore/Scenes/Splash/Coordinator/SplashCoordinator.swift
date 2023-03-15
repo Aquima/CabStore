@@ -7,30 +7,31 @@
 
 import Foundation
 import UIKit
-
+protocol ListProductsCoordinatorLogic: AnyObject {
+    func goToStore(products: [ListProducts.Products.ViewModel.ProductModel])
+}
 class SplashCoordinator: Coordinator {
-    
-    private let presenter: UINavigationController
-    private var splashViewController: SplashViewController?
+    var navigation: UINavigationController
+    private weak var splashViewController: SplashViewController?
     static let storyboardName = "Main"
-//    private var operationCoordinator: OperationCoordinator!
-    init(presenter: UINavigationController) {
-        self.presenter = presenter
+
+    init(_ navigation: UINavigationController) {
+        self.navigation = navigation
     }
     func start() {
-
-        let splashViewController = SplashViewController()
-        splashViewController.delegate = self
-        presenter.pushViewController(splashViewController, animated: false)
+        let interactor = SplashInteractor()
+        let presenter = SplashPresenter()
+        let splashViewController = SplashViewController(interactor,
+                                                        presenter)
+        splashViewController.coordinator = self
+        navigation.pushViewController(splashViewController, animated: false)
         self.splashViewController = splashViewController
-     
     }
 }
-extension SplashCoordinator: SplashViewDelegate {
+extension SplashCoordinator: ListProductsCoordinatorLogic {
 
-    func goToStore() {
-//        let coordinator = OperationCoordinator(presenter: presenter)
-//        coordinator.start()
-//        self.operationCoordinator = coordinator
+    func goToStore(products: [ListProducts.Products.ViewModel.ProductModel]) {
+        let coordinator = StoreCoordinator(navigation, products)
+        coordinator.start()
     }
 }

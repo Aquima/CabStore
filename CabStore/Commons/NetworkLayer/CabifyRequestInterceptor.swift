@@ -23,9 +23,9 @@ class CabifyRequestInterceptor: RequestInterceptor {
                dueTo error: Error,
                completion: @escaping (RetryResult) -> Void) {
         let response = request.task?.response as? HTTPURLResponse
-        if let statusCode = response?.statusCode,(500...599).contains(statusCode), request.retryCount < retryLimit {
+        if let statusCode = response?.statusCode, (500...599).contains(statusCode), request.retryCount < retryLimit {
             completion(.retryWithDelay(retryDelay))
-        }else{
+        } else {
             return completion(.doNotRetry)
         }
     }

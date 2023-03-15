@@ -10,7 +10,6 @@ import Alamofire
 
 class CabifyApiManager: NSObject {
     static let shared = CabifyApiManager()
-    
     let sessionManager: Session = {
         let configuration = URLSessionConfiguration.af.default
         configuration.requestCachePolicy = .returnCacheDataElseLoad
@@ -22,10 +21,8 @@ class CabifyApiManager: NSObject {
                 userInfo: userInfo,
                 storagePolicy: .allowed)
         })
-        
         let networkLogger = CabifyNetworkLogger()
         let interceptor = CabifyRequestInterceptor()
-        
         return Session(configuration: configuration,
                        interceptor: interceptor,
                        cachedResponseHandler: responseCacher,

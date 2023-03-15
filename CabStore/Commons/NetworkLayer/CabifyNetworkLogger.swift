@@ -13,7 +13,8 @@ class CabifyNetworkLogger: EventMonitor {
     func requestDidFinish(_ request: Request) {
         print(request.description)
     }
-    func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, AFError>){
+    func request<Value>(_ request: DataRequest,
+                        didParseResponse response: DataResponse<Value, AFError>) {
         guard let data = response.data else {
             return
         }

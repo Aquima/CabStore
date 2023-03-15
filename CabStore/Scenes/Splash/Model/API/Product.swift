@@ -12,8 +12,8 @@ struct Product: Codable {
     let price: Double
 }
 extension Product {
-    func toProductModel() -> ProductModel {
-        let productModel = ProductModel(title: self.code,
+    func toProductModel() -> ListProducts.Products.ViewModel.ProductModel {
+        let productModel = ListProducts.Products.ViewModel.ProductModel(title: self.code,
                                         identifier: self.code,
                                         price: self.price)
         return productModel

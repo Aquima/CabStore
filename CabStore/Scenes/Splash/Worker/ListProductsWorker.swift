@@ -6,40 +6,40 @@
 //
 import Foundation
 import UIKit
-typealias ProductListUI = [ProductModel]
-protocol GetStackExchangeWorkerProtocol {
-    func getAuthToken(_ handler: @escaping (ProductListUI?, MessageError?) -> Void )
+
+protocol ListProductsWorkerProtocol {
+    func getListProductsUI(_ handler: @escaping (Products?, MessageError?) -> Void )
 }
-class GetProductListWorker: GetStackExchangeWorkerProtocol {
-    let api: StackExchangeAPIProtocol
+class ListProductsWorker: ListProductsWorkerProtocol {
+    let api: ProductsAPIProtocol
     var reachability: ReachabilityCheckingProtocol
-    let maxNumberOfAttempts = 3
+    let maxNumberOfAttempts = 6
     var currentNumberOfAttempts = 0
     init(
-        _ api: StackExchangeAPIProtocol = ProductsAPI(),
+        _ api: ProductsAPIProtocol = ProductsAPI(),
         _ reachability: ReachabilityCheckingProtocol = Reachability()
     ) {
         self.api = api
         self.reachability = reachability
     }
-    func getAuthToken(_ handler: @escaping (ProductListUI?, MessageError?) -> Void ) {
+    func getListProductsUI(_ handler: @escaping (Products?, MessageError?) -> Void ) {
         guard reachability.isConnectedToNetwork() && currentNumberOfAttempts != maxNumberOfAttempts else {
-            handler(nil, nil)
+            handler(nil, MessageError(serverError: .nointernet))
+            self.getListProductsUI(handler)
             return
         }
         currentNumberOfAttempts += 1
-        api.getAuthToken(handler: { products, error in
+        api.getListProducts(handler: { products, error in
             if let error = error {
                 debugPrint(error)
-                self.getAuthToken(handler)
+                self.getListProductsUI(handler)
                 let messageError = MessageError(serverError: error)
                 handler(nil,messageError)
             }
-            guard let productList = products else {
+            guard let listProducts = products else {
                 return
             }
-            var productListUI = productList.map({ $0.toProductModel() })
-            handler(productListUI, nil)
+            handler(listProducts, nil)
         })
     }
 }

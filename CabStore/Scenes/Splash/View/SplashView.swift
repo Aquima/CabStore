@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import PunaUI
 
 class SplashView: UIView {
 
-    func setupUI(){
+    func setupUI() {
         self.backgroundColor = .white
         self.addSubview(firstProgressBar)
         firstProgressBar.snp.makeConstraints { make in
@@ -65,13 +66,25 @@ class SplashView: UIView {
         stackView.addArrangedSubview(createImageShoppingBag())
         stackView.addArrangedSubview(createImageBanner())
         stackView.translatesAutoresizingMaskIntoConstraints = false
-       
         self.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(280)
             make.centerX.centerY.equalToSuperview()
         }
+        createButton()
     }
-
+    func createButton() {
+        let icon = PunaUIAssets.punaNavegacionCarritoIdle24.image
+        let button = PunaButton(text: "Add To Cart",
+                                hierarchy: .loud,
+                                size: .large,
+                                icon: PunaButtonIcon(icon: icon, orientation: .left))
+        self.addSubview(button)
+        button.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(200)
+            make.bottom.equalTo(-60)
+        }
+    }
 }

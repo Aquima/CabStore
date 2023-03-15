@@ -1,0 +1,8 @@
+disabled_rules: # rule identifiers to exclude from running
+  - nesting
+  - colon
+  - comma
+  - control_statement
+  - identifier_name #rule for checking variable conditions (Upper case , lower case , underscore )
+  - force_cast
+  - shorthand_operator

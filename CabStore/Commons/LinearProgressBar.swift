@@ -18,53 +18,41 @@ open class LinearProgressBar: UIView {
     private let firstProgressComponent = CAShapeLayer()
     private let secondProgressComponent = CAShapeLayer()
     private lazy var progressComponents = [firstProgressComponent, secondProgressComponent]
-    
     private(set) var isAnimating = false
     open private(set) var state: LinearProgressBarState = .indeterminate
     var animationDuration: TimeInterval = 2.5
-    
     open var progressBarWidth: CGFloat = 2.0 {
         didSet {
             updateProgressBarWidth()
         }
     }
-    
     open var progressBarColor: UIColor = .systemBlue {
         didSet {
             updateProgressBarColor()
         }
     }
-    
     open var cornerRadius: CGFloat = 0 {
         didSet {
             updateCornerRadius()
         }
     }
-    
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        
         prepare()
         prepareLines()
     }
-    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         prepare()
         prepareLines()
     }
-    
     override open func layoutSubviews() {
         super.layoutSubviews()
-        
         updateLineLayers()
     }
-    
     private func prepare() {
         clipsToBounds = true
     }
-    
     func prepareLines() {
         progressComponents.forEach {
             $0.fillColor = progressBarColor.cgColor
@@ -75,7 +63,6 @@ open class LinearProgressBar: UIView {
             layer.addSublayer($0)
         }
     }
-    
     private func updateLineLayers() {
         frame = CGRect(x: frame.minX, y: frame.minY, width: bounds.width, height: progressBarWidth)
 
@@ -89,43 +76,36 @@ open class LinearProgressBar: UIView {
         }
 
     }
-    
     private func updateProgressBarColor() {
         progressComponents.forEach {
             $0.fillColor = progressBarColor.cgColor
             $0.strokeColor = progressBarColor.cgColor
         }
     }
-    
     private func updateProgressBarWidth() {
         progressComponents.forEach {
             $0.lineWidth = progressBarWidth
         }
         updateLineLayers()
     }
-    
     private func updateCornerRadius() {
         layer.cornerRadius = cornerRadius
     }
-    
     func forceBeginRefreshing() {
         isAnimating = false
         startAnimating()
     }
-    
     open func startAnimating() {
         guard !isAnimating else { return }
         isAnimating = true
         applyProgressAnimations()
     }
-    
     open func stopAnimating(completion: (() -> Void)? = nil) {
         guard isAnimating else { return }
         isAnimating = false
         removeProgressAnimations()
         completion?()
     }
-    
     // MARK: - Private
 
     private func applyProgressAnimations() {

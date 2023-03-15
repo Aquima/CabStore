@@ -6,7 +6,25 @@
       "location" : "https://github.com/Alamofire/Alamofire",
       "state" : {
         "branch" : "master",
-        "revision" : "e68cfdf9c5aa4e69f675198a3cf8bef72c7cdede"
+        "revision" : "81a29729e7dbfe7b976723843d0280926587a532"
+      }
+    },
+    {
+      "identity" : "punaui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Aquima/PunaUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ec07802290df383b68e63f21297cacf3acfa7a90"
+      }
+    },
+    {
+      "identity" : "purelayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PureLayout/PureLayout.git",
+      "state" : {
+        "revision" : "5561683c96dc49b023c1299bfe4f6fbeed5f8199",
+        "version" : "3.1.9"
       }
     },
     {
