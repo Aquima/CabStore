@@ -13,11 +13,11 @@ protocol ListProductsWorkerProtocol {
 class ListProductsWorker: ListProductsWorkerProtocol {
     let api: ProductsAPIProtocol
     var reachability: ReachabilityCheckingProtocol
-    let maxNumberOfAttempts = 6
+    let maxNumberOfAttempts = 3
     var currentNumberOfAttempts = 0
     init(
         _ api: ProductsAPIProtocol = ProductsAPI(),
-        _ reachability: ReachabilityCheckingProtocol = Reachability()
+        _ reachability: ReachabilityCheckingProtocol = LocalReachability()
     ) {
         self.api = api
         self.reachability = reachability
@@ -25,10 +25,8 @@ class ListProductsWorker: ListProductsWorkerProtocol {
     func getListProductsUI(_ handler: @escaping (Products?, MessageError?) -> Void ) {
         guard reachability.isConnectedToNetwork() && currentNumberOfAttempts != maxNumberOfAttempts else {
             handler(nil, MessageError(serverError: .nointernet))
-            self.getListProductsUI(handler)
             return
         }
-        currentNumberOfAttempts += 1
         api.getListProducts(handler: { products, error in
             if let error = error {
                 debugPrint(error)

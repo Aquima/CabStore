@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import PunaUI
+import Reachability
 
 protocol SplashDisplayLogic: AnyObject {
     var interactor: SplashInteractor { get }
@@ -17,13 +18,17 @@ protocol ListProductsDisplayLogic: AnyObject {
     func displayFetchedProducts(viewModel: ListProducts.Products.ViewModel)
     func displayError(error: MessageError)
 }
-class SplashViewController: UIViewController, ListProductsDisplayLogic, SplashDisplayLogic {
+class SplashViewController: UIViewController, ListProductsDisplayLogic, SplashDisplayLogic, ConnectionListener {
 
     static let identifier = "splashViewController"
     private let splashView = SplashView()
     var coordinator: ListProductsCoordinatorLogic?
     var interactor: SplashInteractor
     var presenter: SplashPresenter
+
+    let snackBar = PunaSnackbar()
+    let rechabilityManager = ReachabilityManager.shared
+
     init(_ interactor: SplashInteractor,
          _ presenter: SplashPresenter) {
         self.interactor = interactor
@@ -51,11 +56,14 @@ class SplashViewController: UIViewController, ListProductsDisplayLogic, SplashDi
     }
     // MARK: ListProductsDisplayLogic
     func displayFetchedProducts(viewModel: ListProducts.Products.ViewModel) {
+        rechabilityManager.stopMonitoring()
         splashView.stopAnimating()
         coordinator?.goToStore(products: viewModel.displayedProducts)
-        print(viewModel.displayedProducts.count)
     }
     func displayError(error: MessageError) {
+        self.view.addSubview(snackBar)
+        let listener: ConnectionListener = self
+        rechabilityManager.addListener(listener: listener)
         createSnackBar(error)
     }
     // MARK: View lifecycle
@@ -64,12 +72,21 @@ class SplashViewController: UIViewController, ListProductsDisplayLogic, SplashDi
       fetchProducts()
     }
     func createSnackBar(_ error: MessageError) {
-        let snack = PunaSnackbar(text: "\(error.title) \n \(error.message)", duration: .short, type: .error)
-        self.view.addSubview(snack)
-        snack.snp.makeConstraints { make in
+        snackBar.text = "\(error.title) \n \(error.message)"
+        snackBar.duration = .short
+        snackBar.type = .error
+        snackBar.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(300)
             make.bottom.equalTo(-60)
+        }
+
+        rechabilityManager.startMonitoring()
+    }
+    // MARK: ConnectionListener
+    func connectionChanged(status: Reachability.Connection) {
+        if status == .cellular || status == .wifi {
+            fetchProducts()
         }
     }
 }
