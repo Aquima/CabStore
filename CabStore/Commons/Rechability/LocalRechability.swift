@@ -14,7 +14,7 @@ public protocol ReachabilityCheckingProtocol {
 }
 
 /// Reachability public class to access from other frameworks
-public class Reachability: ReachabilityCheckingProtocol {
+public class LocalReachability: ReachabilityCheckingProtocol {
 
     public init() {}
 
