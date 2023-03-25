@@ -16,8 +16,10 @@ enum ServerError: Int {
 struct MessageError {
     let title: String
     let message: String
+    private(set) var currentError: ServerError
     init(serverError: ServerError) {
-        switch serverError {
+        currentError = serverError
+        switch currentError {
         case .unacceptable:
             title = "Credenciles"
             message = "Las credenciales son incorrectas intentelo mas tarde."

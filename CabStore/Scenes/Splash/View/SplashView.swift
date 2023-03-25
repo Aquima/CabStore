@@ -9,7 +9,7 @@ import UIKit
 import PunaUI
 
 class SplashView: UIView {
-
+    private(set) var snackBar: PunaSnackbar?
     func setupUI() {
         self.backgroundColor = .white
         self.addSubview(firstProgressBar)
@@ -86,5 +86,28 @@ class SplashView: UIView {
             make.width.equalTo(200)
             make.bottom.equalTo(-60)
         }
+    }
+    func createSnackBar() {
+        if snackBar == nil {
+            snackBar = PunaSnackbar()
+        }
+        guard let snackBar = self.snackBar else {
+            return
+        }
+        snackBar.duration = .short
+        snackBar.type = .error
+        snackBar.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(300)
+            make.bottom.equalTo(-60)
+        }
+        snackBar.isHidden = true
+    }
+    func show(title: String, message: String) {
+        guard let snackBar = self.snackBar else {
+            return
+        }
+        snackBar.text = "\(title) \n \(message)"
+        snackBar.isHidden = false
     }
 }

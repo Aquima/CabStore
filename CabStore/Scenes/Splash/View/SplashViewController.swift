@@ -21,22 +21,25 @@ protocol ListProductsDisplayLogic: AnyObject {
 class SplashViewController: UIViewController, ListProductsDisplayLogic, SplashDisplayLogic, ConnectionListener {
 
     static let identifier = "splashViewController"
-    private let splashView = SplashView()
+    private var splashView: SplashView
     var coordinator: ListProductsCoordinatorLogic?
     var interactor: SplashInteractor
     var presenter: SplashPresenter
-
-    let snackBar = PunaSnackbar()
     let rechabilityManager = ReachabilityManager.shared
 
     init(_ interactor: SplashInteractor,
-         _ presenter: SplashPresenter) {
+         _ presenter: SplashPresenter,
+         _ splashView: SplashView = SplashView()) {
         self.interactor = interactor
         self.presenter = presenter
+        self.splashView = splashView
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override  func loadView() {
+        self.view = splashView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,6 @@ class SplashViewController: UIViewController, ListProductsDisplayLogic, SplashDi
         setupView()
     }
     func setupView() {
-        self.view = splashView
         splashView.setupUI()
         splashView.startAnimating()
     }
@@ -61,27 +63,18 @@ class SplashViewController: UIViewController, ListProductsDisplayLogic, SplashDi
         coordinator?.goToStore(products: viewModel.displayedProducts)
     }
     func displayError(error: MessageError) {
-        self.view.addSubview(snackBar)
+        splashView.createSnackBar()
         let listener: ConnectionListener = self
         rechabilityManager.addListener(listener: listener)
-        createSnackBar(error)
+        if error.currentError == ServerError.nointernet {
+            rechabilityManager.startMonitoring()
+            splashView.show(title: error.title, message: error.message)
+        }
     }
     // MARK: View lifecycle
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       fetchProducts()
-    }
-    func createSnackBar(_ error: MessageError) {
-        snackBar.text = "\(error.title) \n \(error.message)"
-        snackBar.duration = .short
-        snackBar.type = .error
-        snackBar.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.width.equalTo(300)
-            make.bottom.equalTo(-60)
-        }
-
-        rechabilityManager.startMonitoring()
     }
     // MARK: ConnectionListener
     func connectionChanged(status: Reachability.Connection) {
