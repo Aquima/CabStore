@@ -8,6 +8,10 @@
 import Foundation
 import Reachability
 
+public protocol ReachabilityCheckingProtocol {
+    /// isConnectedToNetwork public function
+    func isConnectedToNetwork() -> Bool
+}
 // MARK: - Delegate Protocol
 
 public protocol ConnectionListener: AnyObject {

@@ -1,6 +1,6 @@
 //
 //  Configuration.swift
-//  BCPChallenge
+//  CabStore
 //
 //  Created by Raul on 8/09/21.
 //

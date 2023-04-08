@@ -1,17 +1,11 @@
 //
 //  Rechability.swift
-//  BCPChallenge
+//  CabStore
 //
 //  Created by Raul on 9/09/21.
 //
 
 import SystemConfiguration
-
-/// ReachabilityCheckingProtocol public protocol to access from other frameworks
-public protocol ReachabilityCheckingProtocol {
-    /// isConnectedToNetwork public function
-    func isConnectedToNetwork() -> Bool
-}
 
 /// Reachability public class to access from other frameworks
 public class LocalReachability: ReachabilityCheckingProtocol {
